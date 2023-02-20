@@ -26,5 +26,6 @@ Methods used to extract data from each resources are:
 
 
 After all data was cleaned, it was uploaded into pg admin into 5 different tables and respective primary and foreign key was given to each table:
+
 <img width="140" alt="image" src="https://user-images.githubusercontent.com/110827214/220201637-6cdbba18-8899-46f2-a245-63506b5be320.png">
 
