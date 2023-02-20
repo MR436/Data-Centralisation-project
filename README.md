@@ -17,6 +17,8 @@ Step 2: Another script named database_utils.py and within it, created a class Da
 
 Step 3:Finally,  a script named data_cleaning.py this script  contain a class DataCleaning with methods to clean data from each of the data sources.
 
+# Milsetone 2 Data Clean and uploading
+
 Methods used to extract data from each resources are:
  1 An AWS RDS database - First, return the dictionary of RDS database credentials from a yaml file. Then, initialise and return an SQLAlchemy database engine using these credentials. Using the engines, data was extracted from the database table to a Pandas dataframe.
  2 PDF documents - Used tabula.read_pdf library that allows  to extract tables from PDF documents. It provides a simple interface for extracting tables from PDFs into Pandas DataFrame format.
@@ -28,4 +30,12 @@ Methods used to extract data from each resources are:
 After all data was cleaned, it was uploaded into pg admin into 5 different tables and respective primary and foreign key was given to each table:
 
 <img width="140" alt="image" src="https://user-images.githubusercontent.com/110827214/220201637-6cdbba18-8899-46f2-a245-63506b5be320.png">
+
+# Milestone 3 Query the data
+
+Once all data uploaded, database was ready to answer some business questions like:
+ - which months produced most sales
+ - what percentage of sales coming from each store type
+ - how quickly is the company making sales
+ 
 
