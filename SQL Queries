@@ -3,5 +3,7 @@ from dim_store_details
 group  by country_code 
 
 Query Output: 
+file:///C:/Users/User/Desktop/Output%201.png
+
 
 
