@@ -1,9 +1,40 @@
-SELECT  country_code, count(*)
-from dim_store_details
-group  by country_code 
+Task 1 : Query to extract how many stores business have by each country?
+  SELECT  country_code, count(*)
+  from dim_store_details
+  group  by country_code 
+  
+Task 2: Which locations have most stores?
+  SELECT  locality, count(*) as total_no_stores
+  from dim_store_details
+  group  by locality
 
-Query Output: 
-file:///C:/Users/User/Desktop/Output%201.png
+
+Task 3: Which month produce average highest cost of sales typically?
+  SELECT sum(p.product_price * o.product_quantity) as total_sales, month
+  -- sum(product_quantity) as qty
+  FROM dim_products as p
+  JOIN orders_table as o
+      ON p.product_code = o.product_code
+  join dim_date_times  as d
+  on d.date_uuid = o.date_uuid
+  group by month
+  order by total_sales desc
+
+Task 4: How many sales coming from online business?
+  SELECT sum(result.numbers_of_sales) as numbers_of_sales, sum(result.product_quantity_count) as product_quantity_count, result.location
+  from 
+    (select count(o.*) as numbers_of_sales, sum(o.product_quantity) as product_quantity_count,
+      case 
+        when o.store_code like 'WE%' then 'Web' 
+        else 'Offline'
+      end as location 
+    from orders_table as o
+
+    left join dim_store_details as d
+    on o.store_code = d.store_code
+    group by o.store_code ) as result
+  group by result.location
+
 
 
 
